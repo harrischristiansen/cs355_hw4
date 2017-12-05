@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\input{headers04}
+
+\usepackage{fancyhdr}   
+\pagestyle{fancy}      
+\lhead{}               
+\rhead{Name: Harris Christiansen (christih@purdue.edu)} %%% <-- YOUR NAME HERE
+
+\usepackage[strict]{changepage}  
+\newcommand{\nextoddpage}{\checkoddpage\ifoddpage{\ \newpage\ \newpage}\else{\ \newpage}\fi}  
+
+
+\begin{document}
+
+\title{Homework 4}
+
+\date{}
+
+\maketitle 
+
+\thispagestyle{fancy}  
+\pagestyle{fancy}      
+
+
+
+
+\begin{enumerate}
+
+%%% Problem 1 
+\item {\bfseries Factorizing the RSA modulus.} 
+  Let $N$ be the product of two random $n$-bit prime numbers $p$ and $q$. 
+  Recall that $\varphi(N)$ is the size of $\bbZ_N^*$, and we have $\varphi(N)=(p-1)(q-1)$. 
+  Construct an efficient algorithm that takes as input $N$ and $\varphi(N)$, and outputs the prime factors of  $N$. 
+  
+  {\bfseries Solution.} 
+  \begin{enumerate}
+  \item Algorithm
+  \end{enumerate}  
+
+
+  
+\nextoddpage 
+%%% Problem 2 
+\item {\bfseries Sophie-Germain Primes.}
+  Recall that the Prime Number Theorem states that there are roughly $\frac N{\log N}$ prime numbers $<N$. 
+  To generate a random $n$-bit prime number, recall that, we followed the following two steps
+  \begin{itemize}
+  \item First, we counted the number of $n$-bit primes, and 
+  \item Finally, we generated $T$ random numbers and one of them turned out to be a prime number.
+  \end{itemize}  
+  We chose $T$ such that the probability of finding an $n$-bit prime number in these $T$ attempts is $\geq (1-2^{-t})$, for a parameter $t$. 
+  
+  Now, we want to do this for the Sophie-Germain primes. 
+  We shall rely on the conjecture that there are $\frac N{\log^2 N}$ Sophie-Germain primes $<N$. 
+  \begin{enumerate}
+  \item How many Sophie-Germain primes need $n$-bits in their binary representation? 
+  \item Construct an algorithm that that as input $(n,t)$ and outputs a random $n$-bit Sophie-Germain prime with probability $\geq (1-2^{-t})$. 
+  \end{enumerate} 
+  
+  {\bfseries Solution.} 
+  \begin{enumerate}
+  \item Answer a
+  \item Answer b
+  \end{enumerate}  
+   
+  
+\nextoddpage 
+%%% Problem 3
+\item {\bfseries Encryption along with Signature.}
+  Recall that in RSA-based public-key encryption, if Bob announces his public-key $\pk_B = (N_B,e_B)$ then other parties can encrypt and send messages to Bob that he can decrypt (using the trapdoor $d_B$ that he keeps with himself). 
+  
+  Recall that in RSA-based signatures, if Alice announces her public-key $\pk_A=(N_A,e_A)$ then she can sign messages that other people can verify that Alice has generated the signature (because Alice holds the trapdoor $d_A$). 
+  
+  How can Alice encrypt a message $m$ of her choice and send it to Bob so that only Bob can recover the message, and Bob is guaranteed that it is indeed Alice who sent the ciphertext?
+  
+  {\bfseries Solution.} 
+  \begin{enumerate}
+  \item Begin with Alice encrypting message $m$ for Bob using his public-key $\pk_B = (N_B,e_B)$, via RSA-based public-key encryption. Call this $m_e$
+  \item Now have Alice sign the encrypted message $m_e$ using RSA-based signatures. Call this ${m_e}_s$
+  \item Alice can now send Bob the pair $(m_e, {m_e}_s)$, which Bob can use ${m_e}_s$ to guarantee Alice sent the ciphertext, and only Bob can decrypt the message $m_e$ using his private-key $d_B$.
+  \end{enumerate}  
+  
+   
+  
+  
+  
+   
+
+   
+    
+
+ 
+ 
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\end{document}
