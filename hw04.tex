@@ -34,7 +34,20 @@
   
   {\bfseries Solution.} 
   \begin{enumerate}
-  \item Algorithm
+  \item We are given $N = p \cdot q$ and $\varphi(N)=(p-1)(q-1)$. Given $N$ and $\varphi(N)$ this is effectively a problem of two equations, two unknowns.
+  \begin{boxedalgo}
+  $$\varphi(N) = (p-1)(q-1) = (p \cdot q) - p - q + 1$$
+  $$p = N / q$$
+  $$\varphi(N) = ((N / q) \cdot q) - (N / q) - q + 1 = N - (N / q) - q + 1$$
+  $$\varphi(N) \cdot q = (N \cdot q) - (N / q \cdot q) - (q \cdot q) + (1 \cdot q)$$
+  $$\varphi(N) \cdot q = (N \cdot q) - N - q^2 + q$$
+  $$q^2+(\varphi(N)-N-1)q+N=0$$
+  $$\text{Let }k = -\varphi(N)+N+1.$$
+  $$q^2-kq+N=0$$
+  $$\text{Using the Quadratic formula...}$$
+  $$q = \frac{k\pm \sqrt{k^2-4N}}{2}$$
+  $$p = N / q$$
+  \end{boxedalgo} 
   \end{enumerate}  
 
 
@@ -59,8 +72,10 @@
   
   {\bfseries Solution.} 
   \begin{enumerate}
-  \item Answer a
-  \item Answer b
+  \item Given that there are $\frac N{\log^2 N}$ Sophie-Germain primes < N, we can determine the number of Sophie-Germain primes with exactly N-bits by using this equation and subtracting the number of Sophie-Germain primes with exactly (N-1)-bits.
+ 	$$\frac N{\log^2 N} - \frac {N/2}{\log^2 N/2}$$
+ 	Where N is the largest n-bit prime number.
+  \item Since the probability of finding an n-bit prime number is $\geq (1-2^{-t})$, by selecting a random (n+1)-bit number, subtracting 1, and dividing by 2, such that the result is an n-bit number, will result in selecting a Sophie-Germain prime with probability $\geq (1-2^{-t})$.
   \end{enumerate}  
    
   
